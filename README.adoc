@@ -1,0 +1,197 @@
+
+:linkcss:
+:stylesdir: css
+:stylesheet: mystyle.css
+:twoinches: width='360'
+:full-width: width='100%'
+:three-quarters-width: width='75%'
+:two-thirds-width: width='66%'
+:half-width: width='50%'
+:half-size:
+:one-thirds-width: width='33%'
+:one-quarters-width: width='25%'
+:thumbnail: width='60'
+:imagesdir: images
+:sourcesdir: codes
+:icons: font
+:hide-uri-scheme!:
+:figure-caption: 図
+:example-caption: リスト
+:table-caption: 表
+:appendix-caption: 付録
+:xrefstyle: short
+:section-refsig:
+:chapter-refsig:
+
+:sectnums:
+
+= cit-compiler-final-exam
+
+== 試験の概要
+
+[.lead]
+これは、コンパイラの期末試験用のAssignmentです。
+
+.関連する学習・教育到達目標
+****
+. 種々の対象分野において，自動化，効率化，使い勝手の向上等を考慮してソフトウェアの開発ができる。(DP3.3)
+. 様々なプログラミング言語の基本的な考え方を理解した上で，個々のソフトウェア開発に適切な言語の選択およびそのプログラミングができる。(DP3.4)
+****
+
+[NOTE]
+--
+画面のスナップ（ハードコピー）が必要な設問がある。スナップの取得方法については、ミニテスト（6）で実施した方法を参考にすること。
+--
+
+.試験のアナウンス内容
+****
+* 準備
+** lox01のAssignmentを、14回の講義の演習で実施したところまでやってあること
+* PC持ち込み、ネットワークも利用可、テキストも持ち込み可
+* 試験問題の傾向
+** コンパイラ・インタプリタの構成や用語の基礎知識の確認
+** Loxのプログラムを作成したインタプリタで動かす
+*** 与えられたLoxのプログラムを自分のインタプリタで動かす
+** 問題があるインタプリタのエラーを修正する
+*** 配布するインタプリタを動かし、エラーの発生箇所を確認する
+*** エラーを修正してインタプリタが動くようにする
+*** 修正したインタプリタを動かす
+** Loxインタプリタに文法を追加する
+*** BNFによる文法の定義
+*** 追加した文法に合わせてパーサーを変更する
+*** 変更したパーサーを使って追加した文法を評価する機能を追加する
+*** 更新したインタプリタを動かす
+****
+
+
+== コンパイラ・インタプリタの構成や用語の基礎知識の確認（DP3.3）
+
+=== 次の各項目について該当する用語を選びなさい
+
+. 文字（charactor）の並びから、トークン（token）の並びに変換する。
+. トークンの並びから、式（expression）や文（statement）を構成する。
+. 構文木は、
+. あるプログラミング言語のソースコードを他のプログラミング言語のソースコードに変換する。
+
+
+字句解析と構文解析と意味解析の違いを問う
+
+
+== 作成したLoxインタプリタの動作を確認する（DP3.3）
+
+=== 演習で作成したlox01の最終版をpushする
+
+[IMPORTANT]
+--
+自分が演習で使用していたlox01のAssignment（自分がacceptして作業していたAssignment）を使う。
+もし、最終版がローカル（PC側）にあってpushしていないなら、pushしておく。
+
+現在演習している版が動作していないようなら、動作している段階でコミットしている版を使うこと。
+--
+
+
+=== 作業ディレクトリを作成する（Windows）
+
+[source,shell]
+----
+C: # <1>
+cd \Users\{ログイン名} # <2>
+mkdir compiler-exam-01 # <3>
+cd compiler-exam-01 # <4>
+----
+<1> Cドライブに移動する。
+<2> ホームディレクトリに移動する。
+<3> `compiler-exam-01` という名前のディレクトリを作る。
+<4> 作成したディレクトリへ移動する。
+
+<<clone01>> へ進む。
+
+=== 作業ディレクトリを作成する（Mac or MSYS2）
+
+[source,shell]
+----
+cd <1>
+mkdir compiler-exam-01 # <2>
+cd compiler-exam-01 # <3>
+----
+<1> 自分のホームディレクトリに移動する（引数なしの `cd` はホームへの移動）。
+<2> `compiler-exam-01` という名前のディレクトリを作る。
+<3> 作成したディレクトリへ移動する。
+
+<<clone01>> へ進む。
+
+[[clone01]]
+=== lox01をcloneする
+
+[source,shell]
+----
+pwd # <1>
+C:\Users\{ログイン名}\compiler-exam-01 # <2>
+git clone {cloneに使うURL} # <3>
+cd {lox01のAssignmentのリポジトリ名} # <4>
+----
+<1> `pwd` コマンドを実行する。
+<2> （`pwd` の結果） `compiler-exam-01` ディレクトリであることを確認した +
+MacやMSYS2のターミナルでは `/Users/{ログイン名}/compiler-exam-01` などとなる。
+<3> 作業ディレクトリにlox01のAssignmentをcloneする。 +
+lox01のAssignmentを受理したときにcloneしたのと同様にして、リモートからローカルへAssignmentのリポジトリをcloneする。
+<4> cloneしたローカルリポジトリへ移動する。
+
+<<clone01>> へ進む。
+
+=== lox01の動作を確認する
+
+. 現在のディレクトリが上記で作成した場所であることを確認する。
+. 講義中に演習で自分が使っていたlox01のAssignmentc01cloneした様子（ターミナル等の画面のハードコピーを撮る）。
+. 別途cloneしたlox01を動かす（指定したプログラムを走らせる）
+
+[source,java]
+----
+print 45 + 23 * 3 / 2;
+----
+
+. ASTをASTPrinterで表す
+
+[source,java]
+----
+print (45 + 23) * 3 / 2;
+----
+
+ASTをASTPrinterで表す。
+
+== Loxインタプリタの動作を変更する（DP3.3）
+
+別のAssignmentを用意する（lox01にほぼ同じ）。
+
+受理してcloneさせる。
+
+指定の修正を施す。
+
+文字列の中に文字列区切りがあっても良くする。
+
+print "abcdefg";
+
+print "abc\"defg";
+
+BNFを修正する。
+
+プログラムを修正する。
+
+修正したlox01を動かす
+
+問題点があれば、修正を繰り返す。
+
+lox01をコミットしてプッシュする。
+
+動かした結果を保存する。
+
+
+== プログラムのエラーの修正（DP3.4）
+
+別のAssignmentを用意する（lox01にほぼ同じ）。
+
+受理してcloneさせる。
+
+受理したプログラムにはエラーがあることを確認させる（javacを実行）。
+
+問題点を修正して、実行できるようにする。

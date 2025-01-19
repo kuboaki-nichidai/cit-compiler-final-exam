@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title>cit-compiler-final-exam</title>
+<link rel="stylesheet" href="css/mystyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>cit-compiler-final-exam</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_試験の概要">1. 試験の概要</h2>
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>これは、コンパイラの期末試験用のAssignmentです。</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">関連する学習・教育到達目標</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>種々の対象分野において，自動化，効率化，使い勝手の向上等を考慮してソフトウェアの開発ができる。(DP3.3)</p>
+</li>
+<li>
+<p>様々なプログラミング言語の基本的な考え方を理解した上で，個々のソフトウェア開発に適切な言語の選択およびそのプログラミングができる。(DP3.4)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>画面のスナップ（ハードコピー）が必要な設問がある。スナップの取得方法については、ミニテスト（6）で実施した方法を参考にすること。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">試験のアナウンス内容</div>
+<div class="ulist">
+<ul>
+<li>
+<p>準備</p>
+<div class="ulist">
+<ul>
+<li>
+<p>lox01のAssignmentを、14回の講義の演習で実施したところまでやってあること</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>PC持ち込み、ネットワークも利用可、テキストも持ち込み可</p>
+</li>
+<li>
+<p>試験問題の傾向</p>
+<div class="ulist">
+<ul>
+<li>
+<p>コンパイラ・インタプリタの構成や用語の基礎知識の確認</p>
+</li>
+<li>
+<p>Loxのプログラムを作成したインタプリタで動かす</p>
+<div class="ulist">
+<ul>
+<li>
+<p>与えられたLoxのプログラムを自分のインタプリタで動かす</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>問題があるインタプリタのエラーを修正する</p>
+<div class="ulist">
+<ul>
+<li>
+<p>配布するインタプリタを動かし、エラーの発生箇所を確認する</p>
+</li>
+<li>
+<p>エラーを修正してインタプリタが動くようにする</p>
+</li>
+<li>
+<p>修正したインタプリタを動かす</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Loxインタプリタに文法を追加する</p>
+<div class="ulist">
+<ul>
+<li>
+<p>BNFによる文法の定義</p>
+</li>
+<li>
+<p>追加した文法に合わせてパーサーを変更する</p>
+</li>
+<li>
+<p>変更したパーサーを使って追加した文法を評価する機能を追加する</p>
+</li>
+<li>
+<p>更新したインタプリタを動かす</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_コンパイラインタプリタの構成や用語の基礎知識の確認">2. コンパイラ・インタプリタの構成や用語の基礎知識の確認</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_次の各項目について該当する用語を選びなさい">2.1. 次の各項目について該当する用語を選びなさい</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>文字（charactor）の並びから、トークン（token）の並びに変換する。</p>
+</li>
+<li>
+<p>トークンの並びから、式（expression）や文（statement）を構成する。</p>
+</li>
+<li>
+<p>構文木は、</p>
+</li>
+<li>
+<p>あるプログラミング言語のソースコードを他のプログラミング言語のソースコードに変換する。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>字句解析と構文解析と意味解析の違いを問う</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_作成したloxインタプリタの動作を確認するdp3_3">3. 作成したLoxインタプリタの動作を確認する（DP3.3）</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_演習で作成したlox01の最終版をpushする">3.1. 演習で作成したlox01の最終版をpushする</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>自分が演習で使用していたlox01のAssignment（自分がacceptして作業していたAssignment）を使う。
+もし、最終版がローカル（PC側）にあってpushしていないなら、pushしておく。</p>
+</div>
+<div class="paragraph">
+<p>現在演習している版が動作していないようなら、動作している段階でコミットしている版を使うこと。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_作業ディレクトリを作成するwindows">3.2. 作業ディレクトリを作成する（Windows）</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">C: <i class="conum" data-value="1"></i><b>(1)</b>
+cd \Users\{ログイン名} <i class="conum" data-value="2"></i><b>(2)</b>
+mkdir compiler-exam-01 <i class="conum" data-value="3"></i><b>(3)</b>
+cd compiler-exam-01 <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Cドライブに移動する。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>ホームディレクトリに移動する。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>compiler-exam-01</code> という名前のディレクトリを作る。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>作成したディレクトリへ移動する。</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="#clone01"> 3.4</a> へ進む。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_作業ディレクトリを作成するmac_or_msys2">3.3. 作業ディレクトリを作成する（Mac or MSYS2）</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">cd <i class="conum" data-value="1"></i><b>(1)</b>
+mkdir compiler-exam-01 <i class="conum" data-value="2"></i><b>(2)</b>
+cd compiler-exam-01 <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>自分のホームディレクトリに移動する（引数なしの <code>cd</code> はホームへの移動）。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>compiler-exam-01</code> という名前のディレクトリを作る。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>作成したディレクトリへ移動する。</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="#clone01"> 3.4</a> へ進む。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clone01">3.4. lox01をcloneする</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">pwd <i class="conum" data-value="1"></i><b>(1)</b>
+C:\Users\{ログイン名}\compiler-exam-01 <i class="conum" data-value="2"></i><b>(2)</b>
+git clone {cloneに使うURL} <i class="conum" data-value="3"></i><b>(3)</b>
+cd {lox01のAssignmentのリポジトリ名} <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>pwd</code> コマンドを実行する。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>（<code>pwd</code> の結果） <code>compiler-exam-01</code> ディレクトリであることを確認した<br>
+MacやMSYS2のターミナルでは <code>/Users/{ログイン名}/compiler-exam-01</code> などとなる。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>作業ディレクトリにlox01のAssignmentをcloneする。<br>
+lox01のAssignmentを受理したときにcloneしたのと同様にして、リモートからローカルへAssignmentのリポジトリをcloneする。</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>cloneしたローカルリポジトリへ移動する。</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="#clone01"> 3.4</a> へ進む。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lox01の動作を確認する">3.5. lox01の動作を確認する</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>現在のディレクトリが上記で作成した場所であることを確認する。</p>
+</li>
+<li>
+<p>講義中に演習で自分が使っていたlox01のAssignmentc01cloneした様子（ターミナル等の画面のハードコピーを撮る）。</p>
+</li>
+<li>
+<p>別途cloneしたlox01を動かす（指定したプログラムを走らせる）</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">print 45 + 23 * 3 / 2;</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>ASTをASTPrinterで表す</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">print (45 + 23) * 3 / 2;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ASTをASTPrinterで表す。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_loxインタプリタの動作を変更するdp3_3">4. Loxインタプリタの動作を変更する（DP3.3）</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>別のAssignmentを用意する（lox01にほぼ同じ）。</p>
+</div>
+<div class="paragraph">
+<p>受理してcloneさせる。</p>
+</div>
+<div class="paragraph">
+<p>指定の修正を施す。</p>
+</div>
+<div class="paragraph">
+<p>文字列の中に文字列区切りがあっても良くする。</p>
+</div>
+<div class="paragraph">
+<p>print "abcdefg";</p>
+</div>
+<div class="paragraph">
+<p>print "abc\"defg";</p>
+</div>
+<div class="paragraph">
+<p>BNFを修正する。</p>
+</div>
+<div class="paragraph">
+<p>プログラムを修正する。</p>
+</div>
+<div class="paragraph">
+<p>修正したlox01を動かす</p>
+</div>
+<div class="paragraph">
+<p>問題点があれば、修正を繰り返す。</p>
+</div>
+<div class="paragraph">
+<p>lox01をコミットしてプッシュする。</p>
+</div>
+<div class="paragraph">
+<p>動かした結果を保存する。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_プログラムのエラーの修正dp3_4">5. プログラムのエラーの修正（DP3.4）</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>別のAssignmentを用意する（lox01にほぼ同じ）。</p>
+</div>
+<div class="paragraph">
+<p>受理してcloneさせる。</p>
+</div>
+<div class="paragraph">
+<p>受理したプログラムにはエラーがあることを確認させる（javacを実行）。</p>
+</div>
+<div class="paragraph">
+<p>問題点を修正して、実行できるようにする。</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2025-01-20 01:04:51 +0900
+</div>
+</div>
+</body>
+</html>
