@@ -169,7 +169,21 @@ IMPORTANT: 問3の回答に手を付けたなら、一度commitしておきな�
 
 【準備B】作業用ディレクトリを作成しなさい。
 
-NOTE: 作業用ディレクトリを、他のリポジトリの中に作らないこと。リポジトリの入れ子があると、commitやpushでpermission エラーになることがある。
+[NOTE]
+--
+作業用ディレクトリを、他のリポジトリの中に作らないこと。リポジトリの入れ子があると、commitやpushでpermission エラーになることがある。
+
+[source,text]
+----
+✅️
+├ lox01-AAA-BBB
+├ cit-compiler-final-exam-AAA-BBB
+
+❌️
+├ lox01-AAA-BBB
+        ├ cit-compiler-final-exam-AAA-BBB
+----
+--
 
 [source,shell]
 ----
