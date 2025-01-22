@@ -1,3 +1,4 @@
+// これはif文はまだ使えていない段階のサンプル
 var a = 10;
 var b = 20;
 var c = "ccc";
@@ -10,16 +11,10 @@ var cond = true;
     print a + b;
     cond = false;
     print cond;
-    if(cond) {
-        print a / b;
-    } else {
-        print c + d;
-    }
-}
-if(!cond) {
-    print cond;
     print a / b;
-} else {
-    print cond;
     print c + d;
 }
+
+print cond;
+print a / b;
+print c + d;

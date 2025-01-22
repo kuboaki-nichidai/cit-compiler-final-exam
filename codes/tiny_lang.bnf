@@ -8,6 +8,7 @@ assignment ::= identifier "=" expression
 
 expression ::= term
              | expression "+" term
+             | expression "-" term
 
 term ::= factor
        | term "*" factor
@@ -18,7 +19,6 @@ factor ::= number
 
 identifier ::= letter
              | identifier letter
-             | identifier digit
 
 number ::= digit
          | number digit
