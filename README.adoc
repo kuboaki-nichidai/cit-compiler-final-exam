@@ -243,7 +243,7 @@ cd compiler-exam-01 # <3>
 [[clone01]]
 === lox01をcloneする
 
-【準備C】準備Bで作成した作用用ディレクトリへ、lox01のAssignmentのリポジトリからcloneしなさい。
+【準備C】準備Bで作成した作業用ディレクトリへ、lox01のAssignmentのリポジトリからcloneしなさい。
 
 WARNING: リモートからローカルへcloneしないでローカル内の既存のlox01をコピーして済ませないこと。
 
