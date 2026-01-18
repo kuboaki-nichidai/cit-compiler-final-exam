@@ -43,7 +43,10 @@ WARNING: 試験実施前に、試験監督より、試験監督要領に基づ�
 
 [NOTE]
 --
-画面のスナップ（ハードコピー）が必要な設問がある。スナップの取得方法については、ミニテスト（6）で実施した方法を参考にすること。
+画面のスナップ（ハードコピー）が必要な設問がある。スナップの取得方法についてわからない場合には、下記記事等を参考にすること。
+
+https://www.pc-koubou.jp/magazine/35994?srsltid=AfmBOorbVX7AYZLr4Vg7F5Zrp-4U3SbxxGypobX_REF7D-jCkLfKsEw9[Windows スクリーンショットを撮る4つの方法]
+
 --
 
 ////
@@ -384,4 +387,5 @@ IMPORTANT: 問6の回答に手を付けたなら、commitしておきなさい�
 
 == 試験の提出
 
-このAssignment、`lox_e` のAssignmentを、commit して push することで、試験を提出したとみなす。
+このAssignment（`cit-compiler-final-exam`）と、`lox_e` のAssignmentの両方について、各々必要な commit を済ませたのちに push することで、試験を提出したとみなす。
+pushされたこれら2つのリポジトリについて、試験時間内に実施したcommitまでが採点対象範囲fとなる。
