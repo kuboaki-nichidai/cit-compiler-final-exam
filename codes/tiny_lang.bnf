@@ -1,28 +1,30 @@
 program ::= statement
-          | statement ";" program
+       | statement ";" program
 
 statement ::= assignment
-            | expression
+       | expression
 
 assignment ::= identifier "=" expression
 
 expression ::= term
-             | expression "+" term
-             | expression "-" term
+       | expression "+" term
+       | expression "-" term
 
 term ::= factor
        | term "*" factor
 
 factor ::= number
-         | identifier
-         | "(" expression ")"
+       | identifier
+       | "(" expression ")"
 
 identifier ::= letter
-             | identifier letter
+       | identifier letter
 
 number ::= digit
-         | number digit
+       | number digit
 
-letter ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
+letter ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "j"
+       | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" 
+       | "t" | "u" | "v" | "w" | "x" | "y" | "z"
 
-digit ::= "0" | "1" | ... | "9"
+digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
