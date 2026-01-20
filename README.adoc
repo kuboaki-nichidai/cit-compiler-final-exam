@@ -402,8 +402,8 @@ IMPORTANT: 問6の回答に手を付けたなら、commitしておきなさい�
 インタプリタが動作するように、エラーを修正し、動作を確認しなさい。
 
 . 次のAssignmentを受理して、試験用のディレクトリに、cloneする。
-** `https://classroom.github.com/a/HweuLHTG`
-** `https://classroom.github.com/a/C9LraX0c`
+** `https://classroom.github.com/a/HweuLHTG` （1, 2限目）
+** `https://classroom.github.com/a/C9LraX0c` （3, 4限目）
 . 受理したAssignmentのプログラムコードにエラーがあり、コンパイルが完了しないことを確認する。
 ** コンパイルエラーがおきていることがわかるターミナルウィンドウのスナップショットを取得し「 <<lox_e_error>> 」を差し替えなさい。
 . インタプリタが動作するようにプログラムを修正する。
