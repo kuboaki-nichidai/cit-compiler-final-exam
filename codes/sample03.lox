@@ -8,4 +8,4 @@ print a + b;
 cond = false;
 print cond;
 print a / b;
-print c + d;
+print c + cond;
